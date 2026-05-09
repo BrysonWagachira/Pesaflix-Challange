@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pesaflix Music Challenge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--y:#FFD700;--bg:#0a0a0a;--card:#181818;--muted:#aaa}
+    body{background:var(--bg);color:#fff;font-family:'Barlow',sans-serif}
+    img.banner{width:100%;display:block;max-height:90vh;object-fit:cover;object-position:top}
+    .wrap{max-width:820px;margin:0 auto;padding:0 20px 80px}
+    h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:3px;color:var(--y);text-align:center;margin:56px 0 24px}
+    h2::after{content:'';display:block;width:56px;height:3px;background:var(--y);margin:8px auto 0;border-radius:2px}
+    .beat{background:var(--card);border:1px solid #2a2a2a;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+    .beat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--y),#f90,var(--y))}
+    .beat-top{display:flex;align-items:center;gap:16px}
+    .beat-icon{width:52px;height:52px;border-radius:10px;background:#222;border:1px solid #333;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+    .beat-top h3{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1px}
+    .beat-top p{font-size:.8rem;color:var(--muted);margin-top:2px}
+    audio{width:100%;accent-color:var(--y)}
+    .btn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--y);color:#000;font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:2px;padding:15px;border-radius:10px;text-decoration:none;animation:glow 2.5s ease-in-out infinite}
+    .btn:hover{background:#ffe500;transform:translateY(-2px);animation:none}
+    .btn svg{width:19px;height:19px}
+    @keyframes glow{0%,100%{box-shadow:0 4px 18px rgba(255,215,0,.25)}50%{box-shadow:0 4px 34px rgba(255,215,0,.5)}}
+    .steps{display:flex;flex-direction:column;gap:14px}
+    .step{display:flex;align-items:flex-start;gap:14px;background:var(--card);border:1px solid #222;border-radius:12px;padding:16px 18px;transition:border-color .2s}
+    .step:hover{border-color:var(--y)}
+    .num{width:32px;height:32px;border-radius:50%;background:var(--y);color:#000;font-family:'Bebas Neue',sans-serif;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .step strong{display:block;font-size:.93rem;margin-bottom:2px}
+    .step span{font-size:.82rem;color:var(--muted)}
+    .prizes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:520px){.prizes{grid-template-columns:1fr}}
+    .prize{background:var(--card);border:1px solid #222;border-radius:12px;padding:20px;text-align:center;transition:border-color .2s,transform .2s}
+    .prize:hover{transform:translateY(-3px);border-color:var(--y)}
+    .prize.gold{border-color:var(--y);background:linear-gradient(160deg,#1c1900,#181818)}
+    .prize.silver{border-color:#aaa}.prize.bronze{border-color:#cd7f32}
+    .pos{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:2px;color:var(--muted);margin-bottom:4px}
+    .amt{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.7rem,4vw,2.3rem);line-height:1}
+    .prize.gold .amt{color:var(--y)}.prize.silver .amt{color:#ccc}.prize.bronze .amt{color:#cd7f32}.prize.other .amt{color:#888;font-size:1.5rem}
+    .trophy{font-size:1.7rem;margin-bottom:6px}
+    .rules{display:flex;flex-direction:column;gap:10px}
+    .rule{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid #222;border-radius:8px;padding:12px 16px;font-size:.88rem;color:var(--muted)}
+    .rule::before{content:'✓';color:var(--y);font-weight:900;flex-shrink:0}
+    .deadline{background:linear-gradient(90deg,#1a1600,#222200,#1a1600);border:1px solid var(--y);border-radius:10px;padding:18px;text-align:center;margin-top:56px}
+    .deadline p{font-size:.85rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+    .deadline strong{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--y);letter-spacing:3px;display:block;margin-top:4px}
+    footer{text-align:center;padding:32px 20px;border-top:1px solid #1e1e1e;color:var(--muted);font-size:.8rem}
+    footer a{color:var(--y);text-decoration:none;margin:0 6px}
+    footer a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+
+<img class="banner" src="public/lv_0_20260503113030_jpg.jpeg" alt="Pesaflix Music Challenge"/>
+
+<div class="wrap">
+
+  <h2>Get Your Beat</h2>
+  <div class="beat">
+    <div class="beat-top">
+      <div class="beat-icon">🎵</div>
+      <div>
+        <h3>Pesaflix Challenge Instrumental</h3>
+        <p>Riccobeatz &amp; Mr 808 · Official Challenge Track</p>
+      </div>
+    </div>
+    <audio controls src="public/Pesaflix_Challenge_instrumental_5__fast_-__Riccobeatz_Mr_808__.wav"></audio>
+    <a class="btn" href="public/Pesaflix_Challenge_instrumental_5__fast_-__Riccobeatz_Mr_808__.wav" download="Pesaflix_Challenge_Instrumental.wav">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 3v12"/>
+      </svg>
+      Download Beat (WAV)
+    </a>
+  </div>
+
+  <h2>How to Participate</h2>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><div><strong>Record a 1-Minute Freestyle</strong><span>Download the beat above and rap your original freestyle over it.</span></div></div>
+    <div class="step"><div class="num">2</div><div><strong>Use the Official Pesaflix Instrumental</strong><span>The beat above is the only official track for this challenge.</span></div></div>
+    <div class="step"><div class="num">3</div><div><strong>Post on Instagram &amp; TikTok</strong><span>Upload your freestyle video to both platforms.</span></div></div>
+    <div class="step"><div class="num">4</div><div><strong>Tag @pesaflix_kenya</strong><span>Tag us so we can find your entry and count it.</span></div></div>
+    <div class="step"><div class="num">5</div><div><strong>Mention PESAFLIX in Your Video</strong><span>Say the name out loud in your freestyle!</span></div></div>
+  </div>
+
+  <h2>Prizes</h2>
+  <div class="prizes">
+    <div class="prize gold"><div class="trophy">🏆</div><div class="pos">Winner</div><div class="amt">KES 100,000</div></div>
+    <div class="prize silver"><div class="trophy">🥈</div><div class="pos">1st Runner-Up</div><div class="amt">KES 50,000</div></div>
+    <div class="prize bronze"><div class="trophy">🥉</div><div class="pos">2nd Runner-Up</div><div class="amt">KES 30,000</div></div>
+    <div class="prize other"><div class="trophy">🎤</div><div class="pos">Positions 4–10</div><div class="amt">KES 10,000 each</div></div>
+  </div>
+
+  <h2>Rules</h2>
+  <div class="rules">
+    <div class="rule">Must be an original freestyle — no copyrighted lyrics</div>
+    <div class="rule">Clear audio &amp; video quality required</div>
+    <div class="rule">Follow all participation instructions to qualify</div>
+    <div class="rule">Decisions by Pesaflix are final</div>
+  </div>
+
+  <div class="deadline">
+    <p>Submission Deadline</p>
+    <strong>30th May 2026</strong>
+  </div>
+
+</div>
+
+<footer>
+  <p>Powered by <a href="https://www.pesaflix.com" target="_blank">PESAFLIX</a> · Unleash Your Sound</p>
+  <p style="margin-top:10px">
+    <a href="https://www.instagram.com/pesaflix_kenya" target="_blank">📸 @pesaflix_kenya on Instagram</a>
+    <a href="https://www.tiktok.com/@pesaflix_ke" target="_blank">🎵 @pesaflix_ke on TikTok</a>
+  </p>
+</footer>
+
+</body>
+</html>
